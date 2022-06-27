@@ -22,7 +22,7 @@ function displayBooks() {
     booksContainerEl.insertAdjacentElement('beforeend', btnRemove);
 
     const lineBreak = document.createElement('hr');
-    booksContainerEl.insertAdjacentElement(lineBreak);
+    booksContainerEl.insertAdjacentElement('beforeend' ,lineBreak);
   });
 }
 
