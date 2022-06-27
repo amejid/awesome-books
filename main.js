@@ -8,21 +8,37 @@ if (!localStorage.getItem('booksInfo')) {
 }
 const books = JSON.parse(localStorage.getItem('booksInfo'));
 
+function uploadToStorage(books) {
+  localStorage.setItem('booksInfo', JSON.stringify(books));
+}
+
+/* eslint-disable no-use-before-define */
+function loadFromStorage() {
+  const books = JSON.parse(localStorage.getItem('booksInfo'));
+  displayBooks(books);
+}
+loadFromStorage();
+
+function removeBook() {
+  books.splice(this, 1);
+  uploadToStorage(books);
+  loadFromStorage();
+}
+
 function displayBooks() {
   booksContainerEl.innerHTML = '';
   books.forEach((book, index) => {
     const builder = `
-      <div>
-        <p>${book.title}</p>
-        <p>${book.author}</p>
-      </div>`;
+        <div>
+          <p>${book.title}</p>
+          <p>${book.author}</p>
+        </div>`;
 
     booksContainerEl.insertAdjacentHTML('beforeend', builder);
 
     const btnRemove = document.createElement('button');
     btnRemove.textContent = 'Remove';
 
-    /* eslint-disable no-use-before-define */
     btnRemove.addEventListener('click', removeBook.bind(index));
 
     booksContainerEl.insertAdjacentElement('beforeend', btnRemove);
@@ -31,22 +47,6 @@ function displayBooks() {
     booksContainerEl.insertAdjacentElement('beforeend', lineBreak);
   });
 }
-
-function removeBook() {
-  books.splice(this, 1);
-  uploadToStorage(books);
-  loadFromStorage();
-}
-
-function uploadToStorage(books) {
-  localStorage.setItem('booksInfo', JSON.stringify(books));
-}
-
-function loadFromStorage() {
-  const books = JSON.parse(localStorage.getItem('booksInfo'));
-  displayBooks(books);
-}
-loadFromStorage();
 
 btnAddEl.addEventListener('click', (e) => {
   e.preventDefault();
