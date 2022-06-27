@@ -7,7 +7,7 @@ const books = [];
 
 function displayBooks() {
   booksContainerEl.innerHTML = '';
-  books.forEach((book) => {
+  books.forEach((book, index) => {
     const builder = `
       <div>
         <p>${book.title}</p>
@@ -19,11 +19,19 @@ function displayBooks() {
     const btnRemove = document.createElement('button');
     btnRemove.textContent = 'Remove';
 
+    /* eslint-disable */
+    btnRemove.addEventListener('click', removeBook.bind(index));
+
     booksContainerEl.insertAdjacentElement('beforeend', btnRemove);
 
     const lineBreak = document.createElement('hr');
-    booksContainerEl.insertAdjacentElement('beforeend' ,lineBreak);
+    booksContainerEl.insertAdjacentElement('beforeend', lineBreak);
   });
+}
+
+function removeBook() {
+  books.splice(this, 1);
+  displayBooks(books);
 }
 
 btnAddEl.addEventListener('click', (e) => {
