@@ -1,27 +1,22 @@
-# awesome-books# My-Portfolio
+# awesome-books
 
-> Portfolio  local storage.
-
-
+> A plain javascript project that can keep track of a list of books utilizing localStorage.
 
 ## Built With
 
-- html
-- css
-- javascript
-
+- HTML
+- CSS
+- Javascript
 
 To get a local copy up and running follow these simple example steps.
 
-[Click here to view web](https://kayonga99.github.io/My-Portfolio/)
-
-
-
 ## Authors
-## Author1
 
-## Author2
+👤 **Abdelmejid Oumer Ali**
 
+- GitHub: [@amejid](https://github.com/amejid)
+- Twitter: [@amejidoumer](https://twitter.com/amejidoumer)
+- LinkedIn: [amejid](https://linkedin.com/in/amejid)
 
 👤 **Kayonga Chiteta**
 
