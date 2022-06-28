@@ -9,23 +9,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Awesome Books</h1>
-    <div class="books-container"></div>
+    <div class="container">
+      <h1 class="section-title">All awesome books</h1>
+      <div class="books-container"></div>
 
-    <form action="">
-      <div>
-        <input name="title" type="text" placeholder="Title" id="title" />
-      </div>
-      <br />
-      <div>
-        <input name="author" type="text" placeholder="Author" id="author" />
-      </div>
-      <br />
-      <div>
+      <div class="partition"></div>
+
+      <h2 class="form-title">Add a new book</h2>
+      <form action="" class="form">
+        <input class="form-control" name="title" type="text" placeholder="Title" id="title" />
+        <input class="form-control" name="author" type="text" placeholder="Author" id="author" />
         <button class="btn-submit" type="submit">Add</button>
-      </div>
-    </form>
-
+      </form>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
