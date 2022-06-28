@@ -32,8 +32,7 @@ class Book {
     if (!this.#books) return;
     this.#books.forEach((book, index) => {
       const builder = `
-      <p>${book.title}</p>
-      <p>${book.author}</p>`;
+      <p class="book-info">"${book.title}" by ${book.author}</p>`;
 
       const bookDiv = document.createElement('div');
       bookDiv.classList.add('book');
@@ -46,10 +45,7 @@ class Book {
 
       bookDiv.insertAdjacentElement('beforeend', btnRemove);
 
-      const lineBreak = document.createElement('hr');
-
       booksContainerEl.appendChild(bookDiv);
-      booksContainerEl.insertAdjacentElement('beforeend', lineBreak);
     });
   }
 
@@ -71,8 +67,8 @@ app.loadFromStorage();
 
 btnAddEl.addEventListener('click', (e) => {
   e.preventDefault();
-  const title = titleEl.value;
-  const author = authorEl.value;
+  const title = titleEl.value.trim();
+  const author = authorEl.value.trim();
 
   if (!title || !author) return;
   const book = new Book(title, author);
