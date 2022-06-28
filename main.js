@@ -79,6 +79,8 @@ btnAddEl.addEventListener('click', (e) => {
 
   book.uploadToStorage();
   book.loadFromStorage();
+  titleEl.value = '';
+  authorEl.value = '';
 });
 
 booksContainerEl.addEventListener('click', (e) => {
