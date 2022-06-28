@@ -2,6 +2,32 @@ const booksContainerEl = document.querySelector('.books-container');
 const titleEl = document.querySelector('#title');
 const authorEl = document.querySelector('#author');
 const btnAddEl = document.querySelector('.btn-submit');
+ 
+class Book {
+  #books;
+
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.retrieveStorage();
+  }
+  
+  retrieveStorage() {
+    this.#books = JSON.parse(localStorage.getItem('booksInfo')) || [];
+  }
+
+  uploadToStorage(node) {
+    if (node) {
+      localStorage.setItem('booksInfo', JSON.stringify(node));
+      return;
+    }
+    this.retrieveStorage();
+    const book = { title: this.title, author: this.author };
+    this.#books.push(book);
+    localStorage.setItem('booksInfo', JSON.stringify(this.#books));
+  }
+
+}
 
 let books;
 books = JSON.parse(localStorage.getItem('booksInfo')) || [];
