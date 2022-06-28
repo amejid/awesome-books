@@ -63,6 +63,6 @@ btnAddEl.addEventListener('click', (e) => {
 booksContainerEl.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
     const targetId = +e.target.getAttribute('id');
-    removeBook(targetId);
+    // removeBook(targetId);
   }
 });
